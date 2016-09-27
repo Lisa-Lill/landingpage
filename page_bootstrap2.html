@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>QTLNetMiner</title>
+    <meta name="description" content="QTLNetMiner - Mining and prioritizing candidate genes in integrated Ondex networks for plant and animal genomes.">
+	<meta name="Keywords" content="QTLNetMiner, tool, Gene, Genome, QTL, Ondex, Plant, Animal, Data Mining, Candidate Gene, Ranking, Prioritization, Bioinformatics" />
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+
+<script language="javascript" type="text/javascript">
+
+//this is where we apply opacity to the arrow
+$(window).scroll( function(){
+
+  //get scroll position
+  var topWindow = $(window).scrollTop();
+  //multipl by 1.5 so the arrow will become transparent half-way up the page
+  var topWindow = topWindow * 1.5;
+  
+  //get height of window
+  var windowHeight = $(window).height();
+      
+  //set position as percentage of how far the user has scrolled 
+  var position = topWindow / windowHeight;
+  //invert the percentage
+  position = 1 - position;
+
+  //define arrow opacity as based on how far up the page the user has scrolled
+  //no scrolling = 1, half-way up the page = 0
+  $('.arrow-wrap').css('opacity', position);
+
+});
+
+
+$('a[href^="#"]').on('click', function(event) {
+
+    var target = $(this.getAttribute('href'));
+
+    if( target.length ) {
+        event.preventDefault();
+        $('html, body').stop().animate({
+            scrollTop: target.offset().top
+        }, 1000);
+    }
+
+});
+
+</script>
+
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+    <!-- mobile display -->
+    <div class="navbar-header"> 
+	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Menue hide/unhide</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>	
+	  
+    	<a href="file:///H:/My%20Documents/lading_page%20QTL/page_bootstrap2.html"><img src="images/logo-black.png" alt="Logo" with="153" height="42"></a>
+     </div>	
+     <div class="navi collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav" id="top">
+ <!-- Link new page !! -->      <li><a href="file:///H:/My%20Documents/lading_page%20QTL/page_bootstrap2.html">Home</a></li>
+      <li><a target="_blank" href="http://www.youtube.com/watch?v=1FDCVrlB6G4">Video</a></li>
+      <li><a target="_blank" href="https://github.com/KeywanHP/QTLNetMiner">GitHub</a></li>
+      <li><a target="_blank" href="http://ondex.rothamsted.ac.uk/QTLNetMiner/releasenotes/guides/QTLNetMiner_UserGuide.pdf">User Guide</a></li>
+      <li><a href="file:///H:/My%20Documents/lading_page%20QTL/news.html">News</a></li>
+      <li><a href="file:///H:/My%20Documents/lading_page%20QTL/Publications.html">Publications</a></li>
+ <!-- Link new page !! -->	  <li><a href="file:///H:/My%20Documents/lading_page%20QTL/Contact.html">Contact</a></li>    
+    </ul>
+    </div>
+   </div>
+ </nav>  <!-- end navbar -->
+ 
+<div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+  <!-- Overlay -->
+  <div class="overlay">
+  <div class="scroll-top-wrapper">
+  	<a class="arrow-wrap active" title="Click to get more" href="#top-page">
+		<span class="arrow"></span>
+	</a>
+  </div>
+  </div>
+
+  <!-- Indicators 
+  <ol class="carousel-indicators">
+   <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+    <li data-target="#bs-carousel" data-slide-to="1"></li>
+    <li data-target="#bs-carousel" data-slide-to="2"></li> 
+<a class="arrow-wrap active" href="#top-page">
+<span class="arrow"></span>
+</a>
+  </ol>--> 
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item slides active">
+      <div class="slide-1"></div>
+      <div class="hero">
+        <hgroup>
+             <img src="images/logo-black.png" alt="Logo">
+            <h3>A tool for the discovery of candidate genes controlling complex traits</h3>	
+        </hgroup>
+      </div>
+    </div>
+    <div class="item slides">
+      <div class="slide-2"></div>
+      <div class="hero">        
+        <hgroup>
+              <img src="images/logo-black.png" alt="Logo">
+            <h3>A tool for the discovery of candidate genes controlling complex traits</h3>	
+        </hgroup>       
+      </div>
+    </div>
+    <div class="item slides">
+      <div class="slide-3"></div>
+      <div class="hero">        
+        <hgroup>
+            <img src="images/logo-black.png" alt="Logo">
+            <h3>A tool for the discovery of candidate genes controlling complex traits</h3>	
+        </hgroup>
+      </div>
+    </div>
+  </div> 
+</div>
+
+
+ <div class="top-page" id="top-page">
+ <div class="col-md-1 col-lg-1"></div>
+  <div class="video col-xs-12 col-sm-6 col-md-4 col-lg-4">
+     <iframe width="420" height="236" src="https://www.youtube.com/embed/1FDCVrlB6G4?wmode=transparent" wmode="opaque" frameborder="0" allowfullscreen></iframe>
+  </div>
+    <div class="introduction col-xs-12 col-sm-6 col-md-6 col-lg-6">
+     <p>QTLNetMiner is a user-friendly web application that can interrogate plant and animal knowledge networks and be used to show candidate genes and QTL associated with given input terms (e.g. early flowering, disease resistance). The relevance of a gene to particular query terms is weighted using information retrieval and network inference methods. The supporting evidence networks for selected candidate genes can be visualized in the new, lightweight KNETviewer (or in the Ondex Web Java-applet). QTLNetMiner is designed in a generic way and can be created for any organism with an integrated Ondex knowledge network (<a href="http://www.ondex.org" target="_blank">www.ondex.org</a>). 
+	
+<!--	 New: <a href="http://www.youtube.com/watch?v=mfySKUuGhIE">QTLNetMiner Video</a> now on YouTube. -->
+        New QTLNetMiner video now on <a target="_blank" href="http://www.youtube.com/watch?v=1FDCVrlB6G4"><img src="images/youTube_logo.png"/></a></p>
+    </div> 
+    <div class="col-md-1 col-lg-1"></div>        
+ </div>
+  
+  
+   <div class="twitter container-fluid col-xs-6 col-sm-6 col-md-2 col-lg-2">   		
+         <a class="twitter-timeline" data-width="350" data-height="400" href="https://twitter.com/hashtag/QTLNetMiner" data-widget-id="776424694471942144">#QTLNetMiner-Tweets</a>    
+         </div>     
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>                   
+          
+	
+<div id="content" class="container-fluid">                     
+       		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+             <h3>Plants</h3>
+        	<a href="https://ondex.rothamsted.ac.uk/QTLNetMinerArabidopsis/">
+                <div class="subqtl">
+                    <div class="testpics">
+                    	<img class="testpics" src="images/new_arabidopsis.jpg" width="215" height="215"/>
+                   	 	<span><p>Arabidopsis</p></span>
+                    	<div class="mask1" id="arabidopsis">
+                       <p>Arabidopsis</p>
+                    	</div>
+                    </div>                   
+                </div>
+            </a>
+            
+			 <a href="https://ondex.rothamsted.ac.uk/QTLNetMinerBarley/">
+                <div class="subqtl">  
+                	<div class="testpics">
+                		<div class="banner banner_new"></div>         
+                    	<img class="testpics" src="images/new_barley.jpg" width="215" height="215" />
+                    	<span><p>Barley</p></span>
+                     	<div class="mask1" id="barley">
+                        <p>Barley</p>                    	
+                     	</div>
+                     </div>
+                </div>
+            </a>
+			 <!-- new QTLNetMiner b. oleracea -->
+			<!--<a href="https://ondex.rothamsted.ac.uk/QTLNetMinerBoleracea/">-->
+ <!--  for circles			<a href="http://qtlnetminerboleracea.appliedbioinformatics.com.au/">
+                                <div class="subqtl">
+                                    <div class="testpics">
+                                        <img class="img-circle" src="images/new_oleracea.jpg" />
+                                        <span><p>B.oleracea</p></span>
+                                        <div class="circle-mask">
+                                        <p>Click here for</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>						-->
+            <a href="http://qtlnetminerboleracea.appliedbioinformatics.com.au/">
+                <div class="subqtl">
+                	<div class="testpics">
+                    	<img class="testpics" src="images/new_oleracea.jpg" width="215" height="215" />
+                    	<span><p>B.oleracea</p></span>
+                   	 	<div class="mask1" id="boleraceae">
+                    	<p>B.oleracea</p>
+                    	</div>
+                    </div>
+                </div>
+            </a>
+			<a href="http://qtlnetminercicer.appliedbioinformatics.com.au/">
+                <div class="subqtl">
+                	<div class="banner banner_new"></div>
+                    	<div class="testpics">
+                    		<img class="testpics" src="images/new_chickpea.jpg" width="215" height="215" />
+                    		<span><p>Chickpea</p></span>
+                     		<div class="mask1" id="chickpea">
+                     		<p>Chickpea</p>
+                     		</div>
+                     </div>
+                </div>
+            </a>
+			 <!-- new QTLNetMiner Maize -->
+			<a href="https://ondex.rothamsted.ac.uk/QTLNetMinerMaize/">
+                <div class="subqtl">
+                	<div class="banner banner_prototype"></div>
+                     	<div class="testpics">
+                            <img class="testpics" src="images/new_maize.jpg" width="215" height="215" />
+                            <span><p>Maize</p></span>
+                            <div class="mask1" id="maize">
+                            <p>Maize</p>
+                            </div>
+                      </div>
+                </div>
+            </a>
+            <a href="https://ondex.rothamsted.ac.uk/QTLNetMinerPoplar/">
+                <div class="subqtl">
+					<div class="banner banner_newPoplar"></div>
+                   	 	<div class="testpics">
+                            <img class="testpics" src="images/new_poplar.jpg" width="215" height="215" />
+                            <span><p>Poplar</p></span>
+                            <div class="mask1" id="poplar">
+                            <p>Poplar</p>
+                            </div>
+                     	</div> 
+                </div>
+            </a>
+            <a href="https://ondex.rothamsted.ac.uk/QTLNetMinerPotato/">
+                <div class="subqtl">
+                 	<div class="testpics">
+                        <img class="testpics" src="images/new_potato.jpg"  width="215" height="215"/>
+                        <span><p>Potato</p></span>
+                        <div class="mask1" id="potato">
+                        <p>Potato</p>
+                        </div>
+                	</div>
+                </div>
+            </a>
+            <a href="https://ondex.rothamsted.ac.uk/SOLNetMiner/">
+                <div class="subqtl">
+                	<div class="testpics">
+                        <img class="testpics" src="images/new_solanaceae.jpg" width="215" height="215" />
+                        <span><p>Solanaceae</p></span>
+                        <div class="mask1" id="solanaceae">
+                        <p>Solanaceae</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+           
+            <a href="https://ondex.rothamsted.ac.uk/QTLNetMinerWheat/">
+                <div class="subqtl">
+                <div class="banner banner_new"></div> 
+                	<div class="testpics">   
+                        <img class="testpics" src="images/new_wheat.jpg" width="215" height="215" />
+                        <span><p>Wheat</p></span>
+                        <div class="mask1" id="wheat">
+                        <p>Wheat</p>
+                        </div>
+                    </div>
+                </div>
+            </a>	
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <h3>Animals</h3>
+        	<a href="https://ondex.rothamsted.ac.uk/QTLNetMinerChicken/">
+                <div class="subqtl">
+                	<div class="banner banner_prototype"></div>
+                    	<div class="testpics">
+                            <img class="testpics" src="images/new_chicken.jpg" width="215" height="215" />
+                            <span><p>Chicken</p></span>
+                            <div class="mask1" id="chicken">
+                            <p>Chicken</p>
+                            </div>
+                     	</div>
+                </div>
+            </a>
+            
+            <a href="https://ondex.rothamsted.ac.uk/QTLNetMinerCow/">
+                <div class="subqtl">
+                	<div class="banner banner_prototype"></div>
+                    <div class="testpics">
+                        <img class="testpics" src="images/new_cow.jpg" width="215" height="215" />
+                         <span><p>Cow</p></span>
+                        <div class="mask1" id="cow">
+                        <p>Cow</p>
+                        </div>
+                     </div>
+                </div>
+            </a>
+            <a href="https://ondex.rothamsted.ac.uk/QTLNetMinerPig/">
+                <div class="subqtl row">
+                	<div class="banner banner_prototype"></div>
+                   	 <div class="testpics">
+                        <img class="testpics" src="images/new_pig.jpg" width="215" height="215" />
+                        <span><p>Pig</p></span>
+                        <div class="mask1" id="pig">
+                        <p>Pig</p>
+                        </div>
+                    </div>
+                </div>
+            
+            </a> 
+            </div>   <!--	 end of div animals -->
+        </div>    <!--       end div id=content  -->
+
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 container-fluid" id="screenshots">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+<img src="images/Map_View_Screenshot.jpg" id="map-view" width="571" height="374"/>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6" id="text-map-view">
+<h4>Text which explains the Map Viewer</h4>
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+</div>
+</div>
+
+
+       <div class="contact-footer col-xs-12 col-sm-12 col-md-12 col-lg-12"> 
+       	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"> 
+        <h4 class="logos">Developed at</h4>                         		
+    		<a target="_blank" title="Rothamsted Research" href="http://www.rothamsted.ac.uk" class="logos"><img src="images/rothamsted_logo.png" /></a>  
+            <a target="_blank" title="Applied Bioinformatics" href="http://www.rothamsted.ac.uk/applied-bioinformatics" class="logos" ><img src="images/informatics.jpg" /></a> 		
+        </div>   
+    <div class="supporter col-xs-12 col-sm-12 col-md-6 col-lg-6">  
+    	<h4 class="logos">Supported by</h4>   
+    	<a target="_blank" title="Ondex" href="http://www.ondex.org" class="logos"><img src="images/Ondex_logo.png" /></a>
+        <a target="_blank" title="BBSRC" href="http://www.bbsrc.ac.uk" class="logos"><img src="images/bbsrc_anniversary_logo.png"/></a>
+        <a target="_blank" title="BBSRC" href="http://www.bbsrc.ac.uk" class="logos"><img src="images/bbsrc_logo.png"/></a>
+       </div> 
+       <div class="foot col-xs-12 col-sm-12 col-md-12 col-lg-12"> 
+       <p>This work was supported by BBSRC SABR and TRDF awards BB/F006039/1 and BB/I023860/1</p> 
+       </div>
+       <div class="foot col-xs-12 col-sm-12 col-md-12 col-lg-12"> 
+      <img src="images/logo-black.png" alt="Logo" with="229.5" height="63">
+       </div>
+ 	</div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
