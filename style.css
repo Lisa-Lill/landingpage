@@ -11,10 +11,11 @@ a {
 	display: block;
 	text-align:justify;
 	padding-top:100px;
-	background-color:lightgrey;
-	font-size:14px;
+	background-color:darkorange;
 	}
-
+.carousel-control {
+	top:25px;
+	}
 /*Navbar*/
 .navi {
 	overflow:hidden;
@@ -22,22 +23,34 @@ a {
 	}
 ul.nav {
 	float:right;
-	background-color: lightgrey; 
+	
 	}
 ul {
 	font-size:18px;
 	}
+
 ul#top.nav.navbar-nav a:hover {
-	background-color:grey;
+	border-style: solid;
+	color:white;
+	border-color:DimGrey;
+	border-bottom:solid 6px darkorange;
 	height:50px;
 	}
 .navbar {
 	display:block;
-	height:50px;
-	background-color:lightgrey;
+	height:51px;
+	box-shadow: 0 1px 5px;
+	background-color:DimGray;
+	filter: alpha(opacity=80);
+	-moz-opacity:0.8;
+	-khtml-opacity: 0.8;
+	opacity: 0.8;
 	}
 .nav li {
 	padding-left:30px;
+	}
+.navbar-default .navbar-nav>li>a {
+	color:white;
 	}
 	
 /*Carousel*/
@@ -50,6 +63,9 @@ ul#top.nav.navbar-nav a:hover {
 	width: 100%;
 	overflow: hidden;
 	heigth:100%;
+	}
+{
+	padding-top:80px;
 	}
 .carousel-caption {
 	padding-bottom: 170px;
@@ -114,6 +130,7 @@ ul#top.nav.navbar-nav a:hover {
 /*Plants and Animals in h3*/
 #content h3 {
 	padding-left:40px;
+	color:white;
 	}
 
 /*Order of pictures*/
@@ -389,29 +406,32 @@ ul#top.nav.navbar-nav a:hover {
     100% { top:0; }
   }
 
-#screenshots {
-	background-color:white;
-	height:auto;
-	padding: 20px 0px 20px 100px;
+.video-geno {
+	padding:40px 0px 40px 0px;
+	text-align: justify;
 	}
+#text1 {
+	padding-right:100px;
+	}
+#screenshots-two {
+	background-color:darkorange;
+	}	
 #map-view{
 	border-style: solid;
 	border-width: 1px;
 	border-color:black;
 	 border-radius:18px;
-	 -moz-border-radius:18px; -webkit-border-radius:18px; -o-border-radius:18px;
+	 -moz-border-radius:18px; 
+	 -webkit-border-radius:18px; 
+	 -o-border-radius:18px;
 	}
 #text-map-view {
-	padding-right:100px;
-	text-align: justify;
+	padding-right:50px;
 	}
 	
 /*Rules Contact page*/	
 .contact-page {
 	padding: 120px 0px 120px 100px;
-	}
-.contact-footer {
-	background-color:lightgrey;
 	}
 .mail{
 	font-size:17px;
@@ -443,25 +463,27 @@ ul.news li:hover {
 	height:auto;
 	background-color:white;
 	}
-	
 /*Footer*/
-.footer {
-		height: auto;
-		color: black;
-		background-color: lightgrey;
-		padding-top:30px;
+.contact-footer {
+	background-color:DimGray;
+	filter: alpha(opacity=80);
+	-moz-opacity:0.8;
+	-khtml-opacity: 0.8;
+	opacity: 0.8;
+	color:white;
 	}
 .supporter {
-		padding-bottom:60px;
+		padding-bottom:20px;
 	}
 .foot {
 		text-align:center;
+		padding-top:20px;
 		}
 .logos {
 	padding-left:30px;
 	}
 .logos img{
-	padding-top:10px;
+	padding-top:5px;
 	}
 	
 /* media query navbar collapse into mobile state */	
